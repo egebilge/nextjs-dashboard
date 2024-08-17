@@ -51,13 +51,20 @@ function SignInForm() {
                 placeholder="m@example.com"
                 required
                 name="email"
+                value="yunus@test.com"
               />
             </div>
             <div className="grid gap-2">
               <div className="flex items-center">
                 <Label htmlFor="password">{t("password")}</Label>
               </div>
-              <Input id="password" type="password" required name="password" />
+              <Input
+                id="password"
+                type="password"
+                required
+                name="password"
+                value="yunus"
+              />
             </div>
             <Button type="submit" className="w-full">
               {t("login")}
