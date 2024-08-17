@@ -1,12 +1,18 @@
 import { Button } from "@/components/ui/button";
 import { TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { PlusCircle } from "lucide-react";
+import { usePathname } from "next/navigation";
+import React, { useMemo } from "react";
 
 type ActionBarProps = {
   onAddNewClick: () => void;
 };
 
-function ActionBar({ onAddNewClick }: ActionBarProps) {
+const ActionBar = React.memo(({ onAddNewClick }: ActionBarProps) => {
+  const pathname = usePathname();
+
+  const isDashboard = useMemo(() => pathname === "/dashboard", [pathname]);
+
   return (
     <div className="flex items-center">
       <TabsList>
@@ -18,15 +24,17 @@ function ActionBar({ onAddNewClick }: ActionBarProps) {
         </TabsTrigger>
       </TabsList>
       <div className="ml-auto flex items-center gap-2">
-        <Button size="sm" className="h-8 gap-1" onClick={onAddNewClick}>
-          <PlusCircle className="h-3.5 w-3.5" />
-          <span className="sr-only sm:not-sr-only sm:whitespace-nowrap">
-            Add New
-          </span>
-        </Button>
+        {!isDashboard && (
+          <Button size="sm" className="h-8 gap-1" onClick={onAddNewClick}>
+            <PlusCircle className="h-3.5 w-3.5" />
+            <span className="sr-only sm:not-sr-only sm:whitespace-nowrap">
+              Add New
+            </span>
+          </Button>
+        )}
       </div>
     </div>
   );
-}
+});
 
 export { ActionBar };

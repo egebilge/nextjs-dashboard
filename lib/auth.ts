@@ -1,7 +1,6 @@
 import { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import axios from "axios";
-import lodash from "lodash";
 
 export const authOptions: NextAuthOptions = {
   providers: [
@@ -31,7 +30,7 @@ export const authOptions: NextAuthOptions = {
           if (token) {
             console.log("Token received:", token);
             return {
-              id: lodash.uniqueId(),
+              id: credentials?.email ?? "",
               email: credentials?.email ?? "",
               token: token,
             };
@@ -55,7 +54,7 @@ export const authOptions: NextAuthOptions = {
     },
     async session({ session, token }) {
       session.user = {
-        id: token.id as string,
+        id: token.email as string,
         token: token.accessToken as string,
         email: token.email as string,
       };

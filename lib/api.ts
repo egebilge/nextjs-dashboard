@@ -15,7 +15,6 @@ API.interceptors.request.use(
       const session = await getSession();
       if (session && session.user.token) {
         config.headers.Authorization = `Bearer ${session.user.token}`;
-        console.log("Authorization header set:", config.headers.Authorization);
       }
       return config;
     } catch (error) {
