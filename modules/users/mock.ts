@@ -1,0 +1,17 @@
+export const userListColumnLabelMapping: { [key: string]: string } = {
+  Id: "ID",
+  Adi: "Adı",
+  Soy: "Soyadı",
+  Aciklama: "Açıklama",
+  Tcno: "TC No",
+  Kimlik_no: "Kimlik No",
+  Dogum_tarihi: "Doğum Tarihi",
+  Sistem_tarihi: "Sistem Tarihi",
+  Sistem_grubu: "Sistem Grubu",
+  Otel_kodu: "Otel Kodu",
+  Ulke_xml: "Ülke XML",
+  Kulanici: "Kullanıcı",
+  Acenta: "Acenta",
+  Xml_Kodu: "XML Kodu",
+  ULke_Adı: "Ülke Adı",
+};
