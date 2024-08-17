@@ -38,13 +38,9 @@ const resources = Object.values(LANGUAGE).reduce(
   {} as Record<LANGUAGE, ModuleTranslation>
 );
 
-let browserLanguage = "en"; // default language
-
-if (typeof window !== "undefined") {
-  const savedLanguage = localStorage.getItem("@browserLanguage");
-  browserLanguage = savedLanguage || navigator.language.split("-")[0];
-  localStorage.setItem("@browserLanguage", browserLanguage);
-}
+const savedLanguage = localStorage.getItem("@browserLanguage");
+const browserLanguage = savedLanguage || navigator.language.split("-")[0];
+localStorage.setItem("@browserLanguage", browserLanguage);
 
 i18n.use(initReactI18next).init({
   resources,

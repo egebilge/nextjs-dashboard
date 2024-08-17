@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import i18n, { LANGUAGE } from "@/lib/i18n";
-import { useCallback, useState } from "react";
+import { useCallback } from "react";
 import { useTranslation } from "react-i18next";
 
 function SettingsList() {
